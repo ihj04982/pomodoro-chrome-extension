@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pomodoro Timer</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <h1>포모도로 타이머</h1>
+    
+    <div class="timer-display">
+      <div class="timer" id="timer">25:00</div>
+      <div class="status" id="status">시작 준비됨</div>
+    </div>
+    
+    <div class="form-group">
+      <label for="task-input">작업 이름:</label>
+      <input type="text" id="task-input" placeholder="무엇에 집중하시나요?">
+    </div>
+    
+    <div class="form-group">
+      <label>타이머 모드:</label>
+      <div class="toggle-container">
+        <button id="mode-25-5" class="toggle-btn active">25-5</button>
+        <button id="mode-50-10" class="toggle-btn">50-10</button>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>소리 알림:</label>
+      <div class="toggle-container">
+        <button id="sound-on" class="toggle-btn active">켜기</button>
+        <button id="sound-off" class="toggle-btn">끄기</button>
+      </div>
+    </div>
+    
+    <div class="controls">
+      <button id="start-btn" class="control-btn">시작</button>
+      <button id="pause-btn" class="control-btn" disabled>일시정지</button>
+      <button id="reset-btn" class="control-btn">초기화</button>
+    </div>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
