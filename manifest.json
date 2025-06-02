@@ -3,6 +3,10 @@
   "name": "Pomodoro Timer",
   "version": "1.0",
   "description": "Simple and effective Pomodoro timer for productivity",
+  "author": "Your Name",
+  "homepage_url": "https://github.com/yourusername/pomodoro-chrome-extension",
+  "offline_enabled": true,
+  "minimum_chrome_version": "88",
   "icons": {
     "16": "images/icon16.png",
     "48": "images/icon48.png",
@@ -22,6 +26,7 @@
     "notifications"
   ],
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type": "module"
   }
 }
