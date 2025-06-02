@@ -62,18 +62,6 @@ class PomodoroTimer {
     this.timerState = new TimerState();
     this.timerInterval = null;
     this.initialize();
-    this.setupAlarms();
-  }
-
-  setupAlarms() {
-    // Clear any existing alarms
-    chrome.alarms.clearAll();
-    
-    // Set up alarm for timer completion
-    chrome.alarms.create('timerComplete', {
-      delayInMinutes: 25, // Default to 25 minutes
-      periodInMinutes: 25
-    });
   }
 
   setupTimer() {
@@ -140,12 +128,6 @@ class PomodoroTimer {
       this.updateBadge();
       this.setupTimer();
       this.notifyStateChange();
-
-      // Update alarm for timer completion
-      chrome.alarms.create('timerComplete', {
-        delayInMinutes: this.timerState.timeLeft / 60,
-        periodInMinutes: this.timerState.timeLeft / 60
-      });
     } catch (error) {
       console.error('Error starting timer:', error);
     }
@@ -157,7 +139,6 @@ class PomodoroTimer {
       this.saveTimerState();
       this.updateBadge();
       this.notifyStateChange();
-      chrome.alarms.clear('timerComplete');
     } catch (error) {
       console.error('Error pausing timer:', error);
     }
@@ -172,7 +153,6 @@ class PomodoroTimer {
       this.saveTimerState();
       this.updateBadge();
       this.notifyStateChange();
-      chrome.alarms.clear('timerComplete');
     } catch (error) {
       console.error('Error resetting timer:', error);
     }
@@ -186,6 +166,7 @@ class PomodoroTimer {
       this.timerState.timeLeft = this.timerState.isFocus ? 
         this.timerState.focusTime * 60 : 
         this.timerState.breakTime * 60;
+      
       this.timerState.isRunning = true;
       this.saveTimerState();
       this.updateBadge();
@@ -258,13 +239,6 @@ class PomodoroTimer {
 }
 
 const pomodoroTimer = new PomodoroTimer();
-
-// Handle alarms
-chrome.alarms.onAlarm.addListener((alarm) => {
-  if (alarm.name === 'timerComplete') {
-    pomodoroTimer.handleTimerComplete();
-  }
-});
 
 // Handle messages
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
