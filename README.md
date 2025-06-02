@@ -18,3 +18,6 @@
 
 ### 주의사항
 - **크롬 알림 설정**: 이 확장 프로그램을 사용하기 위해서는 시스템 설정에서 크롬 알림을 켜야 합니다. 알림이 켜져 있지 않으면 타이머 종료 시 알림이 표시되지 않습니다.
+
+### Link
+[pomodoro 크롬 익스텐션 개발기](https://www.notion.so/heejeonglim/AI-native-fe5bc778873540a5bc67e780b1e067df?pvs=4#1fcfa58deac5802fb71adef29ba4d4ca)
