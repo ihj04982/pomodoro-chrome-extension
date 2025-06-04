@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Pomodoro Timer",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "Simple and effective Pomodoro timer for productivity",
   "author": "Heejeong Lim",
   "homepage_url": "https://github.com/ihj04982/pomodoro-chrome-extension",
@@ -20,11 +20,7 @@
       "128": "images/icon128.png"
     }
   },
-  "permissions": [
-    "storage",
-    "alarms",
-    "notifications"
-  ],
+  "permissions": ["storage", "alarms", "notifications"],
   "background": {
     "service_worker": "background.js"
   }
